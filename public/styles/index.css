@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Univa Nova';
+    src: url('../fonts/Web Fonts/UnivaNova-Regular.eot');
+    src: url('../fonts/Web Fonts/UnivaNova-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Web Fonts/UnivaNova-Regular.woff2') format('woff2'),
+        url('../fonts/Web Fonts/UnivaNova-Regular.woff') format('woff'),
+        url('../fonts/Web Fonts/UnivaNova-Regular.svg#UnivaNova-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Univa Nova Bold Italic';
+    src: url('../fonts/Web Fonts/UnivaNova-BoldItalic.woff');
+    font-weight: 800;
+    font-style: italic;
+}
+
+* {
+    font-family: 'Univa Nova';
+}
+div {
+    font-family: 'Univa Nova Bold Italic';
+
+}
+form {
+    display: flex;
+    flex-flow: column;
+    align-items: left;
+}
+form > * {
+    display: block;
+}
+input[type="submit"] { 
+    width: 10%;
+}

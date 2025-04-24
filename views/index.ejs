@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <title>Blog</title>
+    <link rel="stylesheet" href="/styles/index.css">
+</head>
+<body>
+
+    <!-- Problem: 
+        The server needs a edit and delete feature for already written posts. 
+    -->
+
+    <%- include('./partials/header.ejs') %>
+    <!-- POST method  -->
+    <% if (!locals.list) { %>
+        <div>Another day...</div>
+        <p>Today me and the boys...</p>    
+    <% } else { %>
+        <% list.forEach(entry => { %>
+            <div><%= entry?.title %></div>
+            <p><%= entry?.date %></p>
+            <p><%= entry?.content %></p>
+            <form action="/edit" method="post">
+                <label for="edit">Edit</label>
+                <input type="submit" name="edit" value="<%= entry.id %>">
+            </form>
+            <form action="/" method="post">
+                <label for="remove">Remove</label>
+                <input type="submit" name="remove" value="<%= entry.id %>" />
+            </form>            
+        <%}) %>
+    <%}%>
+    <!-- what if I added a second form to process edit and deletes? -->
+    <!-- render new partials here with a map method -->
+</body>
+</html>
