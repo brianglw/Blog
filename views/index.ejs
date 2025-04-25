@@ -2,34 +2,57 @@
 <head>
     <title>Blog</title>
     <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-
-    <!-- Problem: 
-        The server needs a edit and delete feature for already written posts. 
+    <!-- STEP 1: Stylizing your header
+            //Your header should be simple and easy to use. 
+            //Color your navigation by adding a background color, larger font size, font color, line-height to your nav bar 
+            //Replace the <a> innerText with an representative icon (house, paper & pencil)
+            
+            -->
+        
+    <%- include('./partials/header.ejs') %>
+    <!-- STEP 3: Styling the blog posts
+            //Add paddings, margins between posts
+            //Create at least 3 classes for varying font-sizes (title, date, and content)
     -->
 
-    <%- include('./partials/header.ejs') %>
-    <!-- POST method  -->
-    <% if (!locals.list) { %>
-        <div>Another day...</div>
-        <p>Today me and the boys...</p>    
-    <% } else { %>
-        <% list.forEach(entry => { %>
-            <div><%= entry?.title %></div>
-            <p><%= entry?.date %></p>
-            <p><%= entry?.content %></p>
-            <form action="/edit" method="post">
-                <label for="edit">Edit</label>
-                <input type="submit" name="edit" value="<%= entry.id %>">
-            </form>
-            <form action="/" method="post">
-                <label for="remove">Remove</label>
-                <input type="submit" name="remove" value="<%= entry.id %>" />
-            </form>            
-        <%}) %>
-    <%}%>
-    <!-- what if I added a second form to process edit and deletes? -->
-    <!-- render new partials here with a map method -->
+    <div class="body">
+        <% if (!locals.blog) { %>
+            <div>Another day...</div>
+            <p>Today me and the boys...</p>    
+        <% } else { %>
+            <% blog.forEach(entry => { %>
+                <div class="entry">
+                    <i class="entry-title"><%= entry.title %></i>
+                    <p class="entry-date"><%= entry.date %></p>
+                    <p class="entry-content"><%= entry.content %></p>
+                    <div class="entry-input">
+
+                        <form action="/edit" method="post" >
+                            <label for="id"></label>
+                            <input class="camo" name="id" value="<%= entry.id %>">
+                            <button type="submit" class="entry-edit">
+                                <span class='fas fa-pen'></span>
+                            </button>
+                        </form>
+                        <form action="/delete" method="post" >
+                            <label for="delete"></label>
+                            <input class="camo" name="delete" value="<%= entry.id %>">
+                            <button type="submit" value="Delete" class="entry-delete">
+                                <span class="fas fa-trash"></span>
+                            </button>
+                        </form>  
+                    </div>
+                </div>          
+            <%}) %>
+        <%}%>
+    </div>
+        <!-- STEP 2: Add a footer with dates here
+                //Formatted should be like <Date> © <Name>, All Rights Reserved
+                //Use CSS to position it at the bottom right corner
+                    -->
+    <%- include("./partials/footer.ejs") %>
 </body>
 </html>

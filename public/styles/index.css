@@ -18,6 +18,11 @@
 
 * {
     font-family: 'Univa Nova';
+    margin: 0;
+    padding: 0;
+}
+body { 
+    background-color: #a7dca5;
 }
 div {
     font-family: 'Univa Nova Bold Italic';
@@ -33,4 +38,91 @@ form > * {
 }
 input[type="submit"] { 
     width: 10%;
+}
+
+/* making invisible inputs for passing edit and delete ID to index.js */
+.camo { 
+    display: none;
+}
+/* Header and nav links */
+.nav-links, .nav-links a {
+    background-color: #50C878;
+}
+.nav-links {
+    line-height: 5rem;
+    display: flex;
+    flex-direction: row;
+}
+.nav-links a {
+    font-size: 1.5rem;
+    color: rgb(47, 46, 46);
+    margin-left: 5%;
+    padding: 1%;
+    text-decoration: none;
+}
+.nav-links a:hover {
+    background-color: #008631;
+    border-radius: 5%;
+    border: none;
+    cursor: pointer;
+}
+
+/* Footer */
+footer { 
+    margin-top: 2%;
+    margin-left: 90%;
+}
+
+/* Body styling */
+.entry {
+    margin-left: 5%;
+}
+.entry-title {
+    font-size: 4rem;
+}
+.entry-content {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+.entry-date {
+    margin-bottom: 1rem;
+}
+.entry-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+.entry-edit, .entry-delete {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+form {
+    display: inline;
+}
+button[type="submit"] {
+    min-width: 4rem;
+    margin-right: 1rem;
+    color: violet;
+    background-color: black;
+    padding: 10px;
+    margin-top: 0.5rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+/* Write file */
+.entry-write {
+    margin-left: 5%;
+}
+textarea {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    margin-top: 3%;
+}
+textarea.title {
+    font-size: 2.5rem;
 }
